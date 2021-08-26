@@ -1,18 +1,18 @@
 lexer grammar LingA;
 
-PALAVRA_CHAVE	:	'declare' | 'algoritmo' | 'inteiro' | 'literal' | 'real' | 'logico' | 'atribuir' | 'leia' | 'imprima' | 'se' | 'entao' | 'enquanto' | 'inicio' | 'fim_algoritmo' | 'fim_se' | 'registro' | 'escreva'| 'fim_registro' | 'caso' | 'fim_caso' | 'seja' | 'senao' | 'faca' | 'ate' | 'para' | 'fim_para' | 'fim_enquanto' | 'retorne' ;
+PALAVRA_CHAVE	:	'verdadeiro'| 'falso'| 'var'|'tipo'|'nao'|'e'|'ou'|'fim_funcao'|'funcao'| 'fim_procedimento'|'procedimento' | 'inteiro' | 'constante'| 'declare' | 'algoritmo' | 'inteiro' | 'literal' | 'real' | 'logico' | 'atribuir' | 'leia' | 'imprima' | 'se' | 'entao' | 'enquanto' | 'inicio' | 'fim_algoritmo' | 'fim_se' | 'registro' | 'escreva'| 'fim_registro' | 'caso' | 'fim_caso' | 'seja' | 'senao' | 'faca' | 'ate' | 'para' | 'fim_para' | 'fim_enquanto' | 'retorne' ;
 
-NUM_INT	: ('+'|'-')?('0'..'9')+
+NUM_INT	: ('0'..'9')+
 	;
-NUM_REAL	: ('+'|'-')?('0'..'9')+ ('.' ('0'..'9')+)?
+NUM_REAL	: ('0'..'9')+ ('.' ('0'..'9')+)?
 	;
-IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
+IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
 	 ;
 
 CADEIA 	: '"' ( '""' | ~["] )* '"';
 	
 COMENTARIO
-    :   '{' ~('\n'|'\r')* '\r'? '\n' {skip();}
+    :   '{' ~('\n'|'\r')* '}' {skip();}
     ;
 WS  :   ( ' '
         | '\t'
@@ -20,9 +20,9 @@ WS  :   ( ' '
         | '\n'
         ) {skip();}
     ;
-OP_REL	:	'>' | '>=' | '<' | '<=' | '<>' | '=' | 'ou' | 'e'
+OP_REL	:	'>' | '>=' | '<' | '<=' | '<>' | '=' | 'ou' | 'e' | '<-' | '&'
 	;
-OP_ARIT	:	'+' | '-' | '*' | '/'
+OP_ARIT	:	'+' | '-' | '*' | '/' | '%' | '^'
 	;
 DELIM	:	':'
 	;
@@ -34,4 +34,7 @@ VIRGULA: ','
 	;
 INTERVALO: '..'
 	;
+PONTO: '.';
+
+CHAVE: '[' | ']';
 
