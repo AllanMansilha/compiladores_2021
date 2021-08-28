@@ -50,22 +50,22 @@ public class Principal {
                     
                     // Caso o tipo do token seja nenhum dos identificados anteriormente, ocorreu um erro de simbolo não identificado
                     // O erro é escrito no arquivo e quebra-se o loop para interromper a execução.
-                    if (t.getType() == 19){                        
-                        bw.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado");
+                    if (t.getType() >= 20){                        
+                        bw.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado" + "\n");
                         break;
                     }
                     
                     // Caso o tipo do token seja uma cadeia literal sem fechamento de aspas, reporta-se o erro
                     // e quebra-se o loop para interromper a execução.
-                    else if (t.getType() == 17){                        
-                        bw.write("Linha " + t.getLine() + ": cadeia literal nao fechada");
+                    else if (t.getType() == 18){                        
+                        bw.write("Linha " + t.getLine() + ": cadeia literal nao fechada" + "\n");
                         break;
                     }
                     
                     // Caso o tipo do token reconhecido seja um comentário sem fechamento, reporta-se
                     // e quebra-se o loop para interromper a execução do resto do código.
-                    else if (t.getType() == 18){                        
-                        bw.write("Linha " + t.getLine() + ": comentario nao fechado");
+                    else if (t.getType() == 19){                        
+                        bw.write("Linha " + t.getLine() + ": comentario nao fechado" + "\n");
                         break;
                     }
                     

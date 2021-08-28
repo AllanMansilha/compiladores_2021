@@ -36,10 +36,14 @@ INTERVALO: '..'
 	;
 PONTO: '.';
 
-CHAVE: '[' | ']';
+ABRE_CHAVE: '[';
 
-CADEIA_ERRADA: '"' ~('"')*? ('\n'|'\r');
+FECHA_CHAVE: ']';
+
+CADEIA_ERRADA: ('"') ~('"')*? ('\n'|'\r');
 
 COMENTARIO_ERRADO:   '{' ~('}');
+
+ERRO: '}';
 
 ERROS: .;
