@@ -9,7 +9,10 @@ NUM_REAL	: ('0'..'9')+ ('.' ('0'..'9')+)?
 IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
 	 ;
 
-CADEIA 	: '"' ( '""' | ~["] )* '"';
+
+CADEIA 	: '"' ( ESC_SEQ | ~('\''|'\\'|'\n'|'\r') )+? '"';
+fragment
+ESC_SEQ	: '\\\'';
 	
 COMENTARIO
     :   '{' ~('\n'|'\r')* '}' {skip();};
@@ -40,10 +43,8 @@ ABRE_CHAVE: '[';
 
 FECHA_CHAVE: ']';
 
-CADEIA_ERRADA: ('"') ~('"')*? ('\n'|'\r');
+CADEIA_ERRADA: ('"') ~('"');
 
 COMENTARIO_ERRADO:   '{' ~('}');
 
-ERRO: '}';
-
-ERROS: .;
+ERRO: .;

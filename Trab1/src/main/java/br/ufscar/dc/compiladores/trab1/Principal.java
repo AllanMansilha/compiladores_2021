@@ -50,7 +50,7 @@ public class Principal {
                     
                     // Caso o tipo do token seja nenhum dos identificados anteriormente, ocorreu um erro de simbolo não identificado
                     // O erro é escrito no arquivo e quebra-se o loop para interromper a execução.
-                    if (t.getType() >= 20){                        
+                    if (t.getType() >= 20){
                         bw.write("Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado" + "\n");
                         break;
                     }
