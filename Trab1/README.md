@@ -23,7 +23,7 @@ Para ver mais sobre os plugins e dependências, consulte o arquivo pom.xml na pa
 
 ## Compilação
 ### No terminal:
-Na aba do projeto principal, a compilação (build) é realizado com o comando `mvn compile`.
+Na pasta do projeto principal, a compilação (build) é realizado com o comando `mvn compile`.
 ### No NetBeans:
 1. Abrir, no NetBeans, o projeto "Trab1"
 2. Selecionar a opção build, clicando com o botão esquerdo do mouse no nome do projeto
