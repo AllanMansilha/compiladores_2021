@@ -15,7 +15,7 @@ fragment
 ESC_SEQ	: '\\\'';
 	
 COMENTARIO
-    :   '{' ~('\n'|'\r')* '}' {skip();};
+    :   '{' ~('}'|'\n'|'\r')* '}' {skip();};
 
 WS  :   ( ' '
         | '\t'

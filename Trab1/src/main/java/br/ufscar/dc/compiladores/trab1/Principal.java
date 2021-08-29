@@ -44,7 +44,7 @@ public class Principal {
                     
                     // Caso o tipo do token seja diferente de 1 (palavra chave) e menor do que 8 (de operadores ou sinais), 
                     // utiliza-se o modelo de token: <token, modelo-do-token>
-                    if (t.getType() != 1 & t.getType() < 8 ) {
+                    if (t.getType() != 1 & t.getType() < 8) {
                         data = "<'" + t.getText() + "'," + LingA.VOCABULARY.getDisplayName(t.getType()) + ">" + "\n";
                     }
                     
