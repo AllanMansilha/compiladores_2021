@@ -48,7 +48,7 @@ cmdescreva: 'escreva' '(' expressao (',' expressao)* ')';
 
 cmdse: 'se' expressao 'entao' (cmd)* ('senao' (cmd)*)? 'fim_se';
 
-cmdcaso: 'caso'exp_aritmetica 'seja' selecao ['senao' (cmd)*] 'fim_caso';
+cmdcaso: 'caso'exp_aritmetica 'seja' selecao ('senao' (cmd)*)? 'fim_caso';
 
 cmdpara: 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' (cmd)* 'fim-para';
 
@@ -90,7 +90,7 @@ parcela_unario: ('^')? identificador | IDENT '(' expressao (',' expressao)* ')'|
 
 parcela_nao_unario: '&' identificador | CADEIA;
 
-exp_relacional: exp_aritmetica [op_relacional exp_aritmetica];
+exp_relacional: exp_aritmetica (op_relacional exp_aritmetica)?;
 
 op_relacional: '=' | '<>' | '>=' | '>' | '<';
 
