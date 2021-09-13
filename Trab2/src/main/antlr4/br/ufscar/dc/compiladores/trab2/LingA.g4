@@ -1,5 +1,34 @@
 grammar LingA;
 
+NUM_INT	: ('+'|'-')?('0'..'9')+
+	;
+NUM_REAL	: ('+'|'-')?('0'..'9')+ ('.' ('0'..'9')+)?
+	;
+
+CADEIA 	: '"' ( ESC_SEQ | ~('\''|'\\'|'\n'|'\r') )+? '"';
+fragment
+ESC_SEQ	: '\\\'';
+
+COMENTARIO
+    :   '{' ~('\n'|'\r'|'}')*  '}'?  {skip();}
+    ;
+WS  :   ( ' '
+        | '\t'
+        | '\r'
+        | '\n'
+        ) {skip();}
+    ;
+
+IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+	 ;
+
+
+CADEIA_ERRADA: ('"') ~('"')* ('\n'|'\r');
+
+COMENTARIO_ERRADO:   '{' ~('}')* '\n';
+
+ERRO: .;
+
 programa: declaracoes 'algoritmo' corpo 'fim_algoritmo'EOF;
 
 declaracoes: (decl_local_global)*;
@@ -31,7 +60,7 @@ registro: 'registro' (variavel)* 'fim_registro';
 
 declaracao_global: 
 	'procedimento' IDENT '(' (parametros)? ')' (declaracao_local)* (cmd)* 'fim_procedimento'
-	| 'funcao' IDENT '(' ':' tipo_estendido (declaracao_local)* (cmd)* 'fim_funcao'
+	| 'funcao' IDENT '(' (parametros)? ')' ':' tipo_estendido (declaracao_local)* (cmd)* 'fim_funcao'
 	;
 
 parametro: ('var')? identificador (',' identificador)* ':' tipo_estendido;
@@ -50,7 +79,7 @@ cmdse: 'se' expressao 'entao' (cmd)* ('senao' (cmd)*)? 'fim_se';
 
 cmdcaso: 'caso'exp_aritmetica 'seja' selecao ('senao' (cmd)*)? 'fim_caso';
 
-cmdpara: 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' (cmd)* 'fim-para';
+cmdpara: 'para' IDENT '<-' exp_aritmetica 'ate' exp_aritmetica 'faca' (cmd)* 'fim_para';
 
 cmdenquanto: 'enquanto' expressao 'faca' (cmd)* 'fim_enquanto';
 
@@ -92,7 +121,7 @@ parcela_nao_unario: '&' identificador | CADEIA;
 
 exp_relacional: exp_aritmetica (op_relacional exp_aritmetica)?;
 
-op_relacional: '=' | '<>' | '>=' | '>' | '<';
+op_relacional: '>' | '>=' | '<' | '<=' | '<>' | '=';
 
 expressao: termo_logico (op_logico_1 termo_logico)*;
 
@@ -105,32 +134,3 @@ parcela_logica: ('verdadeiro' | 'falso') | exp_relacional;
 op_logico_1: 'ou';
 
 op_logico_2: 'e';
-
-NUM_INT	: ('+'|'-')?('0'..'9')+
-	;
-NUM_REAL	: ('+'|'-')?('0'..'9')+ ('.' ('0'..'9')+)?
-	;
-
-CADEIA 	: '\'' ( ESC_SEQ | ~('\''|'\\') )* '\''
-	;
-fragment
-ESC_SEQ	: '\\\'';
-COMENTARIO
-    :   '%' ~('\n'|'\r')* '\r'? '\n' {skip();}
-    ;
-WS  :   ( ' '
-        | '\t'
-        | '\r'
-        | '\n'
-        ) {skip();}
-    ;
-
-IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
-	 ;
-
-
-CADEIA_ERRADA: ('"') ~('"');
-
-COMENTARIO_ERRADO:   '{' ~('}')* '\n';
-
-ERRO: .;
