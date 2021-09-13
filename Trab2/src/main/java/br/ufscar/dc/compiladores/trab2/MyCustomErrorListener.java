@@ -43,24 +43,24 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
         String tipoToken = LingALexer.VOCABULARY.getSymbolicName(t.getType());
         String saida = ""; //string a ser impressa no aquivo de saida 
         
-        if (tipoToken != null && tipoToken.equals("COMENTARIO_ERRADO")) {//se o token for do tipo COMENT_NFECHADO
-            saida = "Linha " + t.getLine() + ": comentario nao fechado";//atribui a string de saida
+        if (tipoToken != null && tipoToken.equals("COMENTARIO_ERRADO")) {
+            saida = "Linha " + t.getLine() + ": comentario nao fechado";
         }
-        else if (tipoToken != null && tipoToken.equals("CADEIA_ERRADA")) {//se o token for do tipo CADEIA_NFIM
-            saida = "Linha " + t.getLine() + ": cadeia literal nao fechada";//atribui a string de saida
+        else if (tipoToken != null && tipoToken.equals("CADEIA_ERRADA")) {
+            saida = "Linha " + t.getLine() + ": cadeia literal nao fechada";
         }
         else if (tipoToken != null && tipoToken.equals("ERRO")) {
             saida = "Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado";
         }
-        else if (t.getType() == Token.EOF) {//caso o token seja de fim de arquivo
-            saida = "Linha " + t.getLine() + ": erro sintatico proximo a EOF";//atribui a string de saida
+        else if (t.getType() == Token.EOF) {
+            saida = "Linha " + t.getLine() + ": erro sintatico proximo a EOF";
         }
         else {
             saida = "Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText();
         }
-        pw.println(saida);//armazena a string de saida no arquivo desejado
-        pw.println("Fim da compilacao");//informa o fim da compilação e armazena a saida no arquivo desejado
-        throw new ParseCancellationException(saida);// informa o erro para finalizar a execução
+        pw.println(saida);
+        pw.println("Fim da compilacao");
+        throw new ParseCancellationException(saida);
              
     }
 }
