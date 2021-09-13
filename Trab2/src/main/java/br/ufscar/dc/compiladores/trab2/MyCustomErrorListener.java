@@ -39,28 +39,36 @@ public class MyCustomErrorListener implements ANTLRErrorListener {
 
         Token t = (Token) offendingSymbol;
         
-        //Recebe o tipo do token gerado pela gramatica
-        String tipoToken = LingALexer.VOCABULARY.getSymbolicName(t.getType());
-        String saida = ""; //string a ser impressa no aquivo de saida 
+       // Local onde é armazenado a saída escrita no arquivo
+        String data = "";
         
-        if (tipoToken != null && tipoToken.equals("COMENTARIO_ERRADO")) {
-            saida = "Linha " + t.getLine() + ": comentario nao fechado";
+        // Caso em que o comentário não foi fechado de forma correta
+        if (t.getType() == 67) {
+            data = "Linha " + t.getLine() + ": comentario nao fechado";
         }
-        else if (tipoToken != null && tipoToken.equals("CADEIA_ERRADA")) {
-            saida = "Linha " + t.getLine() + ": cadeia literal nao fechada";
+
+        // Caso em que a cadeia não foi fechada
+        else if (t.getType() == 66) {
+            data = "Linha " + t.getLine() + ": cadeia literal nao fechada";
         }
-        else if (tipoToken != null && tipoToken.equals("ERRO")) {
-            saida = "Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado";
+
+        // Erros gerais não previstos
+        else if (t.getType() == 68) {
+            data = "Linha " + t.getLine() + ": " + t.getText() + " - simbolo nao identificado";
         }
+
+        // Caso o problema seja no fim de arquivo (EOF)
         else if (t.getType() == Token.EOF) {
-            saida = "Linha " + t.getLine() + ": erro sintatico proximo a EOF";
+            data = "Linha " + t.getLine() + ": erro sintatico proximo a EOF";
         }
+
+        // Outros casos (como não fechamento de comandos como se, para, etc.)
         else {
-            saida = "Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText();
+            data = "Linha " + t.getLine() + ": erro sintatico proximo a " + t.getText();
         }
-        pw.println(saida);
+        pw.println(data);
         pw.println("Fim da compilacao");
-        throw new ParseCancellationException(saida);
+        throw new ParseCancellationException(data);
              
     }
 }
