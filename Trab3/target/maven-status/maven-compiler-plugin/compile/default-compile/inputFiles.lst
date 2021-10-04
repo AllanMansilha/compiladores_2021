@@ -1,0 +1,13 @@
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/Escopos.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/Principal.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/LingASemanticoUtils.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingAVisitor.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingALexer.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingAParser.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/TabelaDeSimbolos.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingABaseVisitor.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/MyCustomErrorListener.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/LingAGeradorC.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingAListener.java
+/home/allan/NetBeansProjects/Trab3/target/generated-sources/antlr4/br/ufscar/dc/compiladores/trab3/LingABaseListener.java
+/home/allan/NetBeansProjects/Trab3/src/main/java/br/ufscar/dc/compiladores/trab3/LingASemantico.java
