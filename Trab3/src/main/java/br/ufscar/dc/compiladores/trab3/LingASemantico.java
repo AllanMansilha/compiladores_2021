@@ -1,5 +1,6 @@
 package br.ufscar.dc.compiladores.trab3;
 
+import static br.ufscar.dc.compiladores.trab3.LingASemanticoUtils.errosSemanticos;
 import br.ufscar.dc.compiladores.trab3.TabelaDeSimbolos.TipoLingA;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -320,7 +321,9 @@ public class LingASemantico extends LingABaseVisitor<Void>{
             nomeVar = ic.getText();
             
             if (!tabela.existe(ic.getText()) ) {
+                if (!errosSemanticos.contains("Linha " + ic.getStart().getLine() + ": identificador " + ic.getText() + " nao declarado")){
                 LingASemanticoUtils.adicionarErroSemantico(ic.getStart(), "identificador " + ic.getText() + " nao declarado");
+                }
             }
         }
         return super.visitCmdleia(ctx);
