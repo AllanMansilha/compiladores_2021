@@ -237,6 +237,9 @@ public class LingAGeradorC extends LingABaseVisitor<Void>{
             case LITERAL:
                 aux = "%s\", ";
                 break;
+            case LOGICO:
+                aux = "%d\", &";
+                break;
             }
             saida.append(aux+ic.getText());
             
