@@ -201,7 +201,7 @@ public class LingAGeradorC extends LingABaseVisitor<Void>{
         visitExpressao(ctx.expressao());
         saida.append("){\n");
         for(LingAParser.CmdContext c: ctx.cmd()){
-            visitCmd(c)};
+            visitCmd(c);}
         if (ctx.SENAO() != null) { // tem else
             saida.append("}else{\n");
             for(LingAParser.CmdContext c: ctx.cmd()){
