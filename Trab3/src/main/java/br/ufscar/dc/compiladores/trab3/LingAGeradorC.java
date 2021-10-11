@@ -111,6 +111,14 @@ public class LingAGeradorC extends LingABaseVisitor<Void>{
     }
     
     @Override
+    public Void visitCmdretorne(LingAParser.CmdretorneContext ctx) {
+        saida.append("return ");
+        visitExpressao(ctx.expressao());
+        saida.append(";\n");
+        return null;
+    }
+    
+    @Override
     public Void visitCmdatribuicao(LingAParser.CmdatribuicaoContext ctx) {
         String var = ctx.identificador().getText();
         
