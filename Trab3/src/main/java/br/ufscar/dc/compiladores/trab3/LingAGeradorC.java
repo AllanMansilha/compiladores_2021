@@ -251,8 +251,7 @@ public class LingAGeradorC extends LingABaseVisitor<Void>{
     
     @Override 
     public Void visitCmdpara(LingAParser.CmdparaContext ctx) {
-        saida.append("for( " + ctx.IDENT().getText() + " = " + ctx.exp_aritmetica().get(0).getText() + "; " + ctx.IDENT().getText() + " <= " + 
-            ctx.exp_aritmetica(1).getText() + "; " + ctx.IDENT().getText() + "++ ){\n");
+        saida.append("for( ").append(ctx.IDENT().getText()).append(" = ").append(ctx.exp_aritmetica().get(0).getText()).append("; ").append(ctx.IDENT().getText()).append(" <= ").append(ctx.exp_aritmetica(1).getText()).append("; ").append(ctx.IDENT().getText()).append("++ ){\n");
         for(LingAParser.CmdContext cmdC : ctx.cmd()){
             visitCmd(cmdC);
         }
