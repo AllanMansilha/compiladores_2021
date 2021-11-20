@@ -1,6 +1,6 @@
 # Trabalho 3
 
-Este diretório corresponde ao Trabalho 2 da matéria de Construção de Compiladores, oferta 2021/01
+Este diretório corresponde ao Trabalho 3 da matéria de Construção de Compiladores, oferta 2021/01
 
 # Membros do grupo
 
