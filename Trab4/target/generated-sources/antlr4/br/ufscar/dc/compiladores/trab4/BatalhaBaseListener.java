@@ -16,73 +16,49 @@ public class BatalhaBaseListener implements BatalhaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLista_batalha(BatalhaParser.Lista_batalhaContext ctx) { }
+	@Override public void enterPrograma(BatalhaParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLista_batalha(BatalhaParser.Lista_batalhaContext ctx) { }
+	@Override public void exitPrograma(BatalhaParser.ProgramaContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLista_pokemon(BatalhaParser.Lista_pokemonContext ctx) { }
+	@Override public void enterCorpo(BatalhaParser.CorpoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLista_pokemon(BatalhaParser.Lista_pokemonContext ctx) { }
+	@Override public void exitCorpo(BatalhaParser.CorpoContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLista_selvagem(BatalhaParser.Lista_selvagemContext ctx) { }
+	@Override public void enterDeclaracao_equipe(BatalhaParser.Declaracao_equipeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLista_selvagem(BatalhaParser.Lista_selvagemContext ctx) { }
+	@Override public void exitDeclaracao_equipe(BatalhaParser.Declaracao_equipeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMensagem_final(BatalhaParser.Mensagem_finalContext ctx) { }
+	@Override public void enterDeclaracao_selvagem(BatalhaParser.Declaracao_selvagemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMensagem_final(BatalhaParser.Mensagem_finalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterItem(BatalhaParser.ItemContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitItem(BatalhaParser.ItemContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTipo(BatalhaParser.TipoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTipo(BatalhaParser.TipoContext ctx) { }
+	@Override public void exitDeclaracao_selvagem(BatalhaParser.Declaracao_selvagemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -100,37 +76,37 @@ public class BatalhaBaseListener implements BatalhaListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNome(BatalhaParser.NomeContext ctx) { }
+	@Override public void enterCmdLutar(BatalhaParser.CmdLutarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNome(BatalhaParser.NomeContext ctx) { }
+	@Override public void exitCmdLutar(BatalhaParser.CmdLutarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNivel(BatalhaParser.NivelContext ctx) { }
+	@Override public void enterCmdTrocar(BatalhaParser.CmdTrocarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNivel(BatalhaParser.NivelContext ctx) { }
+	@Override public void exitCmdTrocar(BatalhaParser.CmdTrocarContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVida(BatalhaParser.VidaContext ctx) { }
+	@Override public void enterCmdFugir(BatalhaParser.CmdFugirContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVida(BatalhaParser.VidaContext ctx) { }
+	@Override public void exitCmdFugir(BatalhaParser.CmdFugirContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

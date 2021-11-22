@@ -8,65 +8,45 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface BatalhaListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#lista_batalha}.
+	 * Enter a parse tree produced by {@link BatalhaParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void enterLista_batalha(BatalhaParser.Lista_batalhaContext ctx);
+	void enterPrograma(BatalhaParser.ProgramaContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#lista_batalha}.
+	 * Exit a parse tree produced by {@link BatalhaParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void exitLista_batalha(BatalhaParser.Lista_batalhaContext ctx);
+	void exitPrograma(BatalhaParser.ProgramaContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#lista_pokemon}.
+	 * Enter a parse tree produced by {@link BatalhaParser#corpo}.
 	 * @param ctx the parse tree
 	 */
-	void enterLista_pokemon(BatalhaParser.Lista_pokemonContext ctx);
+	void enterCorpo(BatalhaParser.CorpoContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#lista_pokemon}.
+	 * Exit a parse tree produced by {@link BatalhaParser#corpo}.
 	 * @param ctx the parse tree
 	 */
-	void exitLista_pokemon(BatalhaParser.Lista_pokemonContext ctx);
+	void exitCorpo(BatalhaParser.CorpoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#lista_selvagem}.
+	 * Enter a parse tree produced by {@link BatalhaParser#declaracao_equipe}.
 	 * @param ctx the parse tree
 	 */
-	void enterLista_selvagem(BatalhaParser.Lista_selvagemContext ctx);
+	void enterDeclaracao_equipe(BatalhaParser.Declaracao_equipeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#lista_selvagem}.
+	 * Exit a parse tree produced by {@link BatalhaParser#declaracao_equipe}.
 	 * @param ctx the parse tree
 	 */
-	void exitLista_selvagem(BatalhaParser.Lista_selvagemContext ctx);
+	void exitDeclaracao_equipe(BatalhaParser.Declaracao_equipeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#mensagem_final}.
+	 * Enter a parse tree produced by {@link BatalhaParser#declaracao_selvagem}.
 	 * @param ctx the parse tree
 	 */
-	void enterMensagem_final(BatalhaParser.Mensagem_finalContext ctx);
+	void enterDeclaracao_selvagem(BatalhaParser.Declaracao_selvagemContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#mensagem_final}.
+	 * Exit a parse tree produced by {@link BatalhaParser#declaracao_selvagem}.
 	 * @param ctx the parse tree
 	 */
-	void exitMensagem_final(BatalhaParser.Mensagem_finalContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#item}.
-	 * @param ctx the parse tree
-	 */
-	void enterItem(BatalhaParser.ItemContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#item}.
-	 * @param ctx the parse tree
-	 */
-	void exitItem(BatalhaParser.ItemContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#tipo}.
-	 * @param ctx the parse tree
-	 */
-	void enterTipo(BatalhaParser.TipoContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#tipo}.
-	 * @param ctx the parse tree
-	 */
-	void exitTipo(BatalhaParser.TipoContext ctx);
+	void exitDeclaracao_selvagem(BatalhaParser.Declaracao_selvagemContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link BatalhaParser#acao}.
 	 * @param ctx the parse tree
@@ -78,33 +58,33 @@ public interface BatalhaListener extends ParseTreeListener {
 	 */
 	void exitAcao(BatalhaParser.AcaoContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#nome}.
+	 * Enter a parse tree produced by {@link BatalhaParser#cmdLutar}.
 	 * @param ctx the parse tree
 	 */
-	void enterNome(BatalhaParser.NomeContext ctx);
+	void enterCmdLutar(BatalhaParser.CmdLutarContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#nome}.
+	 * Exit a parse tree produced by {@link BatalhaParser#cmdLutar}.
 	 * @param ctx the parse tree
 	 */
-	void exitNome(BatalhaParser.NomeContext ctx);
+	void exitCmdLutar(BatalhaParser.CmdLutarContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#nivel}.
+	 * Enter a parse tree produced by {@link BatalhaParser#cmdTrocar}.
 	 * @param ctx the parse tree
 	 */
-	void enterNivel(BatalhaParser.NivelContext ctx);
+	void enterCmdTrocar(BatalhaParser.CmdTrocarContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#nivel}.
+	 * Exit a parse tree produced by {@link BatalhaParser#cmdTrocar}.
 	 * @param ctx the parse tree
 	 */
-	void exitNivel(BatalhaParser.NivelContext ctx);
+	void exitCmdTrocar(BatalhaParser.CmdTrocarContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link BatalhaParser#vida}.
+	 * Enter a parse tree produced by {@link BatalhaParser#cmdFugir}.
 	 * @param ctx the parse tree
 	 */
-	void enterVida(BatalhaParser.VidaContext ctx);
+	void enterCmdFugir(BatalhaParser.CmdFugirContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link BatalhaParser#vida}.
+	 * Exit a parse tree produced by {@link BatalhaParser#cmdFugir}.
 	 * @param ctx the parse tree
 	 */
-	void exitVida(BatalhaParser.VidaContext ctx);
+	void exitCmdFugir(BatalhaParser.CmdFugirContext ctx);
 }
