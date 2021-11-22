@@ -6,42 +6,30 @@ import java.io.PrintWriter;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 public class Principal {
-    static CharStream cs;
-    static BatalhaLexer lexer;
-    static CommonTokenStream tokens;
-    static BatalhaParser parser;
-    static BatalhaVisitor semantico;
-
     public static void main(String[] args){     
-        try (PrintWriter pw = new PrintWriter(new File(args[1]))){
-            if(lexer_parser(args[0], pw) /* && semantico(args[0], pw)*/){
-                //geradorPDF(args[0],args[1]);
-            }
-        } catch(IOException e){
-            System.out.println("Falha na criação do arquivo de saída.");
-        }
-    }
-    
-    static boolean lexer_parser(String file, PrintWriter pw) throws IOException {
-        try {
-            cs = CharStreams.fromFileName(file);
-            lexer = new BatalhaLexer(cs);
-            tokens = new CommonTokenStream(lexer);
-            parser = new BatalhaParser(tokens);
-            
-            // Remove a mensagem de erro padrão
-            parser.removeErrorListeners();
-            // Registra o error personalizado da analise lexica e sintatica
+       try(PrintWriter pw = new PrintWriter(new File(args[1]))) { 
+            // Leitura de characteres por arquivo (arquivo no args[0])
+            CharStream cs = CharStreams.fromFileName(args[0]);
+        
+            // Variável de tratamento do analizador léxico
+            BatalhaLexer lex = new BatalhaLexer(cs);
+                
+            CommonTokenStream tokens = new CommonTokenStream(lex);
+            BatalhaParser parser = new BatalhaParser(tokens);
+        
+            // Registrar o error lister personalizado aqui
             MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
+            parser.removeErrorListeners();
             parser.addErrorListener(mcel);
-            // Roda a analise sintatica
             parser.programa();
-            return true;
-        } catch (IOException e){
-            System.out.println(e.toString());
-            return false;
+        } catch(IOException ex){
+            
+        }catch(ParseCancellationException exception) {
+                //ao captar um erro, imprime no terminal o erro e encerra a execução
+               //System.out.println(exception.getMessage());
         }
     }
 }
