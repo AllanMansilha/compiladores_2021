@@ -11,41 +11,29 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface BatalhaVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#lista_batalha}.
+	 * Visit a parse tree produced by {@link BatalhaParser#programa}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLista_batalha(BatalhaParser.Lista_batalhaContext ctx);
+	T visitPrograma(BatalhaParser.ProgramaContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#lista_pokemon}.
+	 * Visit a parse tree produced by {@link BatalhaParser#corpo}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLista_pokemon(BatalhaParser.Lista_pokemonContext ctx);
+	T visitCorpo(BatalhaParser.CorpoContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#lista_selvagem}.
+	 * Visit a parse tree produced by {@link BatalhaParser#declaracao_equipe}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLista_selvagem(BatalhaParser.Lista_selvagemContext ctx);
+	T visitDeclaracao_equipe(BatalhaParser.Declaracao_equipeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#mensagem_final}.
+	 * Visit a parse tree produced by {@link BatalhaParser#declaracao_selvagem}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMensagem_final(BatalhaParser.Mensagem_finalContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#item}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitItem(BatalhaParser.ItemContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#tipo}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTipo(BatalhaParser.TipoContext ctx);
+	T visitDeclaracao_selvagem(BatalhaParser.Declaracao_selvagemContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link BatalhaParser#acao}.
 	 * @param ctx the parse tree
@@ -53,21 +41,21 @@ public interface BatalhaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAcao(BatalhaParser.AcaoContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#nome}.
+	 * Visit a parse tree produced by {@link BatalhaParser#cmdLutar}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNome(BatalhaParser.NomeContext ctx);
+	T visitCmdLutar(BatalhaParser.CmdLutarContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#nivel}.
+	 * Visit a parse tree produced by {@link BatalhaParser#cmdTrocar}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNivel(BatalhaParser.NivelContext ctx);
+	T visitCmdTrocar(BatalhaParser.CmdTrocarContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link BatalhaParser#vida}.
+	 * Visit a parse tree produced by {@link BatalhaParser#cmdFugir}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVida(BatalhaParser.VidaContext ctx);
+	T visitCmdFugir(BatalhaParser.CmdFugirContext ctx);
 }
