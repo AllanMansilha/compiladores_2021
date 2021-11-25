@@ -1,5 +1,6 @@
 package br.ufscar.dc.compiladores.trab4;
 
+import br.ufscar.dc.compiladores.trab4.BatalhaParser.ProgramaContext;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +17,8 @@ public class Principal {
         
             // Variável de tratamento do analizador léxico
             BatalhaLexer lex = new BatalhaLexer(cs);
-                
+            
+            // Criação parser
             CommonTokenStream tokens = new CommonTokenStream(lex);
             BatalhaParser parser = new BatalhaParser(tokens);
         
@@ -24,7 +26,14 @@ public class Principal {
             MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
             parser.removeErrorListeners();
             parser.addErrorListener(mcel);
+            
+            // Criação semântico
+            ProgramaContext arvore = parser.programa();
+            BatalhaSemantico as = new BatalhaSemantico();
+            as.visitPrograma(arvore);
+        
             parser.programa();
+            
         } catch(IOException ex){
             
         }catch(ParseCancellationException exception) {
