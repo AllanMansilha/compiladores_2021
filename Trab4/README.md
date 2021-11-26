@@ -10,12 +10,34 @@ Este diretório corresponde ao Trabalho 4 da matéria de Construção de Compila
 
 #### Descrição da linguagem
 
-A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o nivel e a vida deles; o pokemon adversario e a mensagem que representa a ação do que voce deve fazer nessa batalha( lutar, correr ou trocar de pokemon ) As principais regras semânticas são: Não pode ter mais de um pokemon adversário e a ação deve ser condizente aos pokemon relacionados, levando em conta seu tipo, nivel e vida. 
+A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para atacar, precisa ter um pokemon na equipe para trocar e precisa de um pokemon na equipe para enfrentar um selvagem. 
 
 #### Como utilizar a linguagem
 
 Exemplo de como implementar sua batalha:
+```
+pokemon equipe
+    nome: piplup,    
+    tipo: agua,
+    vida: 8,
+fim equipe
 
+pokemon equipe
+    nome: charmander,
+    tipo: fogo,
+    vida: 15,
+fim equipe
+
+pokemon selvagem
+    nome: ninjask,    
+    tipo: grama,
+    vida: 15,
+fim selvagem
+
+Lutar(piplup)
+```
+# Video explicativo da utilização
+[Link do Video]()
 # Requerimentos
 
 Para executar esse programa, é necessário que a máquina tenha:
