@@ -15,14 +15,12 @@ public class TabelaDeSimbolos {
     class EntradaTabelaDeSimbolos {
         String nome;
         Tipo tipo;
-        int nivel;
         int vida;
         int codigo;
 
-        private EntradaTabelaDeSimbolos(String nome, Tipo tipo, int nivel, int vida, int codigo) {
+        private EntradaTabelaDeSimbolos(String nome, Tipo tipo,  int vida, int codigo) {
             this.nome = nome;
             this.tipo = tipo;
-            this.nivel = nivel;
             this.vida = vida;
             this.codigo = codigo;
         }
@@ -34,8 +32,8 @@ public class TabelaDeSimbolos {
         this.tabela = new HashMap<>();
     }
     
-    public void adicionar(String nome, Tipo tipo, int nivel, int vida, int codigo) {
-        tabela.put(nome, new EntradaTabelaDeSimbolos(nome, tipo, nivel, vida, codigo));
+    public void adicionar(String nome, Tipo tipo, int vida, int codigo) {
+        tabela.put(nome, new EntradaTabelaDeSimbolos(nome, tipo, vida, codigo));
     }
     
     public boolean existe(String nome) {
@@ -45,12 +43,8 @@ public class TabelaDeSimbolos {
     public Tipo verificar(String nome) {
         return tabela.get(nome).tipo;
     }
-    
-    public int verificarNivel(String nome) {
-        return tabela.get(nome).nivel;
-    }
-    
-     public int verificarVida(String nome) {
+      
+    public int verificarVida(String nome) {
         return tabela.get(nome).vida;
     }
      
