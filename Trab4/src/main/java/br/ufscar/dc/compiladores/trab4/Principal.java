@@ -23,22 +23,42 @@ public class Principal {
             BatalhaParser parser = new BatalhaParser(tokens);
         
             // Registrar o error lister personalizado aqui
-            MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
             parser.removeErrorListeners();
+            MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
             parser.addErrorListener(mcel);
             
             // Criação semântico
             ProgramaContext arvore = parser.programa();
             BatalhaSemantico as = new BatalhaSemantico();
             as.visitPrograma(arvore);
-        
+            
             parser.programa();
+            
+            if(BatalhaSemanticoUtils.errosSemanticos.isEmpty()){
+                
+                /* Inicia-se a geração do código em C
+                LingAGeradorC aux = new LingAGeradorC();
+                aux.visitPrograma(arvore);
+                pw.print(aux.saida.toString());*/
+                 pw.println("sem erros");
+
+            }else{
+                
+                // Caso tenha erros, envia os erros para o documento de saída
+                for(String erros : BatalhaSemanticoUtils.errosSemanticos){
+                    pw.println(erros);
+                    
+                 }
+                 pw.println("Fim da compilacao");
+            }
+            
+            pw.close();        
             
         } catch(IOException ex){
             
         }catch(ParseCancellationException exception) {
                 //ao captar um erro, imprime no terminal o erro e encerra a execução
-               //System.out.println(exception.getMessage());
+               System.out.println(exception.getMessage());
         }
     }
 }

@@ -18,9 +18,8 @@ public class BatalhaParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, PalavrasChave=12, VIRGULA=13, DOISPONTOS=14, Abre=15, 
-		Fecha=16, Tipo=17, Nome=18, NUM_INT=19, Nivel=20, Vida=21, ERRO=22, COMENTARIO=23, 
-		WS=24;
+		T__9=10, PalavrasChave=11, VIRGULA=12, DOISPONTOS=13, Abre=14, Fecha=15, 
+		Tipo=16, Nome=17, Vida=18, COMENTARIO=19, WS=20, ERRO=21;
 	public static final int
 		RULE_programa = 0, RULE_corpo = 1, RULE_declaracao_equipe = 2, RULE_declaracao_selvagem = 3, 
 		RULE_acao = 4, RULE_cmdLutar = 5, RULE_cmdTrocar = 6, RULE_cmdFugir = 7;
@@ -34,17 +33,17 @@ public class BatalhaParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'pokemon equipe'", "'nome'", "'tipo'", "'nivel'", "'vida'", "'fim equipe'", 
-			"'pokemon selvagem'", "'fim selvagem'", "'Atacar'", "'Trocar'", "'Fugir'", 
+			null, "'pokemon equipe'", "'nome'", "'tipo'", "'vida'", "'fim equipe'", 
+			"'pokemon selvagem'", "'fim selvagem'", "'Lutar'", "'Trocar'", "'Fugir'", 
 			null, "','", "':'", "'('", "')'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			"PalavrasChave", "VIRGULA", "DOISPONTOS", "Abre", "Fecha", "Tipo", "Nome", 
-			"NUM_INT", "Nivel", "Vida", "ERRO", "COMENTARIO", "WS"
+			null, null, null, null, null, null, null, null, null, null, null, "PalavrasChave", 
+			"VIRGULA", "DOISPONTOS", "Abre", "Fecha", "Tipo", "Nome", "Vida", "COMENTARIO", 
+			"WS", "ERRO"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -213,7 +212,7 @@ public class BatalhaParser extends Parser {
 				setState(27); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__8) | (1L << T__9) | (1L << T__10))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__7) | (1L << T__8) | (1L << T__9))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -238,7 +237,6 @@ public class BatalhaParser extends Parser {
 			return getToken(BatalhaParser.VIRGULA, i);
 		}
 		public TerminalNode Tipo() { return getToken(BatalhaParser.Tipo, 0); }
-		public TerminalNode Nivel() { return getToken(BatalhaParser.Nivel, 0); }
 		public TerminalNode Vida() { return getToken(BatalhaParser.Vida, 0); }
 		public Declaracao_equipeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -288,19 +286,11 @@ public class BatalhaParser extends Parser {
 			setState(39);
 			match(DOISPONTOS);
 			setState(40);
-			match(Nivel);
+			match(Vida);
 			setState(41);
 			match(VIRGULA);
 			setState(42);
 			match(T__4);
-			setState(43);
-			match(DOISPONTOS);
-			setState(44);
-			match(Vida);
-			setState(45);
-			match(VIRGULA);
-			setState(46);
-			match(T__5);
 			}
 		}
 		catch (RecognitionException re) {
@@ -325,7 +315,6 @@ public class BatalhaParser extends Parser {
 			return getToken(BatalhaParser.VIRGULA, i);
 		}
 		public TerminalNode Tipo() { return getToken(BatalhaParser.Tipo, 0); }
-		public TerminalNode Nivel() { return getToken(BatalhaParser.Nivel, 0); }
 		public TerminalNode Vida() { return getToken(BatalhaParser.Vida, 0); }
 		public Declaracao_selvagemContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -352,42 +341,34 @@ public class BatalhaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48);
-			match(T__6);
-			setState(49);
+			setState(44);
+			match(T__5);
+			setState(45);
 			match(T__1);
+			setState(46);
+			match(DOISPONTOS);
+			setState(47);
+			match(Nome);
+			setState(48);
+			match(VIRGULA);
+			setState(49);
+			match(T__2);
 			setState(50);
 			match(DOISPONTOS);
 			setState(51);
-			match(Nome);
+			match(Tipo);
 			setState(52);
 			match(VIRGULA);
 			setState(53);
-			match(T__2);
+			match(T__3);
 			setState(54);
 			match(DOISPONTOS);
 			setState(55);
-			match(Tipo);
+			match(Vida);
 			setState(56);
 			match(VIRGULA);
 			setState(57);
-			match(T__3);
-			setState(58);
-			match(DOISPONTOS);
-			setState(59);
-			match(Nivel);
-			setState(60);
-			match(VIRGULA);
-			setState(61);
-			match(T__4);
-			setState(62);
-			match(DOISPONTOS);
-			setState(63);
-			match(Vida);
-			setState(64);
-			match(VIRGULA);
-			setState(65);
-			match(T__7);
+			match(T__6);
 			}
 		}
 		catch (RecognitionException re) {
@@ -434,27 +415,27 @@ public class BatalhaParser extends Parser {
 		AcaoContext _localctx = new AcaoContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_acao);
 		try {
-			setState(70);
+			setState(62);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__8:
+			case T__7:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(67);
+				setState(59);
 				cmdLutar();
 				}
 				break;
-			case T__9:
+			case T__8:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(68);
+				setState(60);
 				cmdTrocar();
 				}
 				break;
-			case T__10:
+			case T__9:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(69);
+				setState(61);
 				cmdFugir();
 				}
 				break;
@@ -502,13 +483,13 @@ public class BatalhaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(72);
-			match(T__8);
-			setState(73);
+			setState(64);
+			match(T__7);
+			setState(65);
 			match(Abre);
-			setState(74);
+			setState(66);
 			match(Nome);
-			setState(75);
+			setState(67);
 			match(Fecha);
 			}
 		}
@@ -552,13 +533,13 @@ public class BatalhaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77);
-			match(T__9);
-			setState(78);
+			setState(69);
+			match(T__8);
+			setState(70);
 			match(Abre);
-			setState(79);
+			setState(71);
 			match(Nome);
-			setState(80);
+			setState(72);
 			match(Fecha);
 			}
 		}
@@ -599,8 +580,8 @@ public class BatalhaParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
-			match(T__10);
+			setState(74);
+			match(T__9);
 			}
 		}
 		catch (RecognitionException re) {
@@ -615,27 +596,25 @@ public class BatalhaParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32W\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\27O\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\3\6\3\26"+
 		"\n\3\r\3\16\3\27\3\3\3\3\6\3\34\n\3\r\3\16\3\35\3\4\3\4\3\4\3\4\3\4\3"+
-		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5"+
-		"\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3"+
-		"\6\5\6I\n\6\3\7\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\2\2\n"+
-		"\2\4\6\b\n\f\16\20\2\2\2R\2\22\3\2\2\2\4\25\3\2\2\2\6\37\3\2\2\2\b\62"+
-		"\3\2\2\2\nH\3\2\2\2\fJ\3\2\2\2\16O\3\2\2\2\20T\3\2\2\2\22\23\5\4\3\2\23"+
-		"\3\3\2\2\2\24\26\5\6\4\2\25\24\3\2\2\2\26\27\3\2\2\2\27\25\3\2\2\2\27"+
-		"\30\3\2\2\2\30\31\3\2\2\2\31\33\5\b\5\2\32\34\5\n\6\2\33\32\3\2\2\2\34"+
-		"\35\3\2\2\2\35\33\3\2\2\2\35\36\3\2\2\2\36\5\3\2\2\2\37 \7\3\2\2 !\7\4"+
-		"\2\2!\"\7\20\2\2\"#\7\24\2\2#$\7\17\2\2$%\7\5\2\2%&\7\20\2\2&\'\7\23\2"+
-		"\2\'(\7\17\2\2()\7\6\2\2)*\7\20\2\2*+\7\26\2\2+,\7\17\2\2,-\7\7\2\2-."+
-		"\7\20\2\2./\7\27\2\2/\60\7\17\2\2\60\61\7\b\2\2\61\7\3\2\2\2\62\63\7\t"+
-		"\2\2\63\64\7\4\2\2\64\65\7\20\2\2\65\66\7\24\2\2\66\67\7\17\2\2\678\7"+
-		"\5\2\289\7\20\2\29:\7\23\2\2:;\7\17\2\2;<\7\6\2\2<=\7\20\2\2=>\7\26\2"+
-		"\2>?\7\17\2\2?@\7\7\2\2@A\7\20\2\2AB\7\27\2\2BC\7\17\2\2CD\7\n\2\2D\t"+
-		"\3\2\2\2EI\5\f\7\2FI\5\16\b\2GI\5\20\t\2HE\3\2\2\2HF\3\2\2\2HG\3\2\2\2"+
-		"I\13\3\2\2\2JK\7\13\2\2KL\7\21\2\2LM\7\24\2\2MN\7\22\2\2N\r\3\2\2\2OP"+
-		"\7\f\2\2PQ\7\21\2\2QR\7\24\2\2RS\7\22\2\2S\17\3\2\2\2TU\7\r\2\2U\21\3"+
-		"\2\2\2\5\27\35H";
+		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5"+
+		"\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6A\n\6\3\7\3\7\3\7\3\7\3\7"+
+		"\3\b\3\b\3\b\3\b\3\b\3\t\3\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2\2J\2\22\3"+
+		"\2\2\2\4\25\3\2\2\2\6\37\3\2\2\2\b.\3\2\2\2\n@\3\2\2\2\fB\3\2\2\2\16G"+
+		"\3\2\2\2\20L\3\2\2\2\22\23\5\4\3\2\23\3\3\2\2\2\24\26\5\6\4\2\25\24\3"+
+		"\2\2\2\26\27\3\2\2\2\27\25\3\2\2\2\27\30\3\2\2\2\30\31\3\2\2\2\31\33\5"+
+		"\b\5\2\32\34\5\n\6\2\33\32\3\2\2\2\34\35\3\2\2\2\35\33\3\2\2\2\35\36\3"+
+		"\2\2\2\36\5\3\2\2\2\37 \7\3\2\2 !\7\4\2\2!\"\7\17\2\2\"#\7\23\2\2#$\7"+
+		"\16\2\2$%\7\5\2\2%&\7\17\2\2&\'\7\22\2\2\'(\7\16\2\2()\7\6\2\2)*\7\17"+
+		"\2\2*+\7\24\2\2+,\7\16\2\2,-\7\7\2\2-\7\3\2\2\2./\7\b\2\2/\60\7\4\2\2"+
+		"\60\61\7\17\2\2\61\62\7\23\2\2\62\63\7\16\2\2\63\64\7\5\2\2\64\65\7\17"+
+		"\2\2\65\66\7\22\2\2\66\67\7\16\2\2\678\7\6\2\289\7\17\2\29:\7\24\2\2:"+
+		";\7\16\2\2;<\7\t\2\2<\t\3\2\2\2=A\5\f\7\2>A\5\16\b\2?A\5\20\t\2@=\3\2"+
+		"\2\2@>\3\2\2\2@?\3\2\2\2A\13\3\2\2\2BC\7\n\2\2CD\7\20\2\2DE\7\23\2\2E"+
+		"F\7\21\2\2F\r\3\2\2\2GH\7\13\2\2HI\7\20\2\2IJ\7\23\2\2JK\7\21\2\2K\17"+
+		"\3\2\2\2LM\7\f\2\2M\21\3\2\2\2\5\27\35@";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

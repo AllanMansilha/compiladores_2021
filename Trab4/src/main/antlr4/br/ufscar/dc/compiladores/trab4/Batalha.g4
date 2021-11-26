@@ -19,11 +19,15 @@ Tipo: ('fogo' | 'agua' | 'grama');
 // Nomes dos pokemons formados por cadeias de caracteres
 Nome : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z' | ' ')*;
 
-// Números inteiros indicam valores de nível e vida
-NUM_INT	: ('0'..'9')+;
 
-Nivel: NUM_INT;
-Vida: NUM_INT;
+// Números inteiros indicam valores de nível e vida
+Vida : ('0'..'9')+;
+
+fragment
+ESC_SEQ	: '\\\'';
+COMENTARIO : '{' ~('\n'|'\r'|'}')* '}' {skip();};
+WS : ( ' ' | '\t' | '\r' | '\n') {skip();};
+
 
 // Verificação de erros
 ERRO: .;
@@ -37,7 +41,6 @@ declaracao_equipe:
     'pokemon equipe'
         'nome' ':' Nome ','
         'tipo' ':' Tipo ','
-        'nivel'':' Nivel ','
         'vida' ':' Vida ','
     'fim equipe';
 
@@ -45,7 +48,6 @@ declaracao_selvagem:
     'pokemon selvagem'
         'nome' ':' Nome ','
         'tipo' ':' Tipo ','
-        'nivel'':' Nivel ','
         'vida' ':' Vida ','
     'fim selvagem';
 
@@ -53,7 +55,7 @@ acao:
     cmdLutar | cmdTrocar | cmdFugir;
     
 cmdLutar:
-    'Atacar' '(' Nome ')';
+    'Lutar' '(' Nome ')';
     
 cmdTrocar:
     'Trocar' '(' Nome ')';
@@ -61,7 +63,4 @@ cmdTrocar:
 cmdFugir:
     'Fugir';
 
-fragment
-ESC_SEQ	: '\\\'';
-COMENTARIO : '{' ~('\n'|'\r'|'}')* '}' {skip();};
-WS : ( ' ' | '\t' | '\r' | '\n') {skip();};
+

@@ -8,7 +8,7 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
     // Inteiro para verificar quantos pokemons tem em uma equipe
     int codigoPokemon = 0;
     
-     @Override
+    @Override
     public Void visitPrograma(BatalhaParser.ProgramaContext ctx) {
         tabela = new TabelaDeSimbolos();
 
@@ -45,10 +45,9 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                         break;
                 }
                 codigoPokemon ++;
-                String nivel = ctx.Nivel().getText();
                 String vida = ctx.Vida().getText();
                 
-                tabela.adicionar(nomePokemon, tipo, Integer.parseInt(nivel), Integer.parseInt(vida), codigoPokemon);
+                tabela.adicionar(nomePokemon, tipo, Integer.parseInt(vida), codigoPokemon);
             }
             
         }
@@ -89,10 +88,9 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                             break;
                     }
                     codigoPokemon = 4;
-                    String nivel = ctx.Nivel().getText();
                     String vida = ctx.Vida().getText();
 
-                    tabela.adicionar(nomePokemon, tipo, Integer.parseInt(nivel), Integer.parseInt(vida), codigoPokemon);
+                    tabela.adicionar(nomePokemon, tipo, Integer.parseInt(vida), codigoPokemon);
                     
                 }
             }      
@@ -109,13 +107,13 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
         if(tabela.existe(nomePokemon)){
             int codigo = tabela.verificarCodigo(nomePokemon);
             if(codigo != 1){
-                BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "não esta no campo de batalha");
+                BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não esta no campo de batalha");
             }
             else{ 
                 int vida = tabela.verificarVida(nomePokemon);
                 
-                if(vida <=0){
-                    BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "não tem vida para lutar");
+                if(vida <= 0){
+                    BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não tem vida para lutar");
                 }   
             }
         }
@@ -134,13 +132,13 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
         if(tabela.existe(nomePokemon)){
             int codigo = tabela.verificarCodigo(nomePokemon);
             if(codigo == 1){
-                BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "já está no campo de batalha");
+                BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " já está no campo de batalha");
             }
             else{ 
                 int vida = tabela.verificarVida(nomePokemon);
                 
                 if(vida <= 0){
-                    BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "não tem vida para lutar");
+                    BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não tem vida para trocar");
                 }   
             }
         }
