@@ -7,6 +7,8 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
     TabelaDeSimbolos tabela;
     // Inteiro para verificar quantos pokemons tem em uma equipe
     int codigoPokemon = 0;
+    // String para verificar a ação escolhida
+    String acao = "";
     
     @Override
     public Void visitPrograma(BatalhaParser.ProgramaContext ctx) {
@@ -26,7 +28,6 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
             if (codigoPokemon>3) {
                 GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                     "Número máximo de pokemons na equipe é 3!</div>\n");
-                //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "Número máximo de pokemons na equipe é 3");
             }
             else{
                 // Tratamento para inserir o nome do tipo no arquivo de saída
@@ -41,11 +42,9 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                         tipoDiv = "<img src = \'https://www.pngkey.com/png/full/353-3532551_pokemon-snivy.png'width=\"25\" height=\"25\">\n";
                         break;
                     default:
-                        //tipoDiv = "Classe inválida";
                         tipoDiv = "<img src = \'https://64.media.tumblr.com/e9d0327e72bfa3daa733ac06b5fb4d25/tumblr_mmi88btyBi1spn836o1_400.png'width=\"25\" height=\"25\">\n";
                         GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                             "O tipo do pokemon " + nomePokemon + " é invalido</div>\n");
-                        //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, tipoDiv);
                         break;
                 }
                 
@@ -56,7 +55,7 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                 
                 if(codigoPokemon == 1){
                     String div = "                <td><div id=\"box\">\n"
-                            + "                    <br><br>"
+                            + "                    <br>Seu pokémon!<br>"
                             + "<h1><font color=\"#74e72e\" 	font-family: 'Courier New'>" + nomePokemon + "     " + tipoDiv+ "</font></h1>\n"
                             + "                    <font color=\"#ffffff\">HP</font> "  + vida + "<p><p><p>\n";
                     GeradorHTML.adicionaDiv(div);
@@ -79,13 +78,11 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
             if (codigoPokemon==0){
                 GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                     "Nenhum pokemon na equipe para batalhar!</div>\n");
-                //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "Nenhum pokemon na equipe para lutar");
             }
             else{
                 if(codigoPokemon > 3){
                     GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                         "Já existe um pokemon selvagem para batalhar!</div>\n");
-                    //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "Já existe um pokemon selvagem para lutar");
                 }
                 else{
                     // Tratamento para inserir o nome do tipo no arquivo de saída
@@ -100,11 +97,9 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                         tipoDiv = "<img src = \'https://www.pngkey.com/png/full/353-3532551_pokemon-snivy.png'width=\"25\" height=\"25\">\n";
                         break;
                     default:
-                        //tipoDiv = "Classe inválida";
                         tipoDiv = "<img src = \'https://64.media.tumblr.com/e9d0327e72bfa3daa733ac06b5fb4d25/tumblr_mmi88btyBi1spn836o1_400.png'width=\"25\" height=\"25\">\n";
                         GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                             "O tipo do pokemon " + nomePokemon + " é invalido</div>\n");
-                        //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, tipoDiv);
                         break;
                     }
                     codigoPokemon = 4;
@@ -113,7 +108,7 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
                     tabela.adicionar(nomePokemon, tipo, Integer.parseInt(vida), codigoPokemon);
                     
                     String div = "                <td><div id=\"box\">\n"
-                            + "                    <br><br>"
+                            + "                    <br>Selvagem!<br>"
                             + "<h1><font color=\"#74e72e\" 	font-family: 'Courier New'>" + nomePokemon + "     " + tipoDiv+ "</font></h1>\n"
                             + "                    <font color=\"#ffffff\">HP</font> "  + vida + "<p><p><p>\n";
                     GeradorHTML.adicionaDiv(div);
@@ -133,24 +128,31 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
         if(tabela.existe(nomePokemon)){
             int codigo = tabela.verificarCodigo(nomePokemon);
             if(codigo != 1){
+                acao = "Erro";
+                GeradorHTML.AddComando(acao);
                 GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                     "O pokemon " + nomePokemon + " não esta no campo de batalha!</div>\n");
-                //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não esta no campo de batalha");
             }
             else{ 
                 int vida = tabela.verificarVida(nomePokemon);
                 
                 if(vida <= 0){
+                    acao = "Erro";
+                    GeradorHTML.AddComando(acao);
                     GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                         "O pokemon " + nomePokemon + " não tem vida vida para batalhar!</div>\n");
-                    //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não tem vida para lutar");
-                }   
+                }
+                else{
+                    acao = "Lutar";
+                    GeradorHTML.AddComando(acao);
+                }
             }
         }
         else{
+            acao = "Erro";
+            GeradorHTML.AddComando(acao);
             GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                 "O pokemon " + nomePokemon + " não esta na equipe!</div>\n");
-            //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "não esta na equipe");
         }
         
         return super.visitCmdLutar(ctx);
@@ -164,24 +166,31 @@ public class BatalhaSemantico extends BatalhaBaseVisitor<Void> {
         if(tabela.existe(nomePokemon)){
             int codigo = tabela.verificarCodigo(nomePokemon);
             if(codigo == 1){
+                acao = "Erro";
+                GeradorHTML.AddComando(acao);
                 GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                     "O pokemon " + nomePokemon + " já esta no campo de batalha!</div>\n");
-                //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " já está no campo de batalha");
             }
             else{ 
                 int vida = tabela.verificarVida(nomePokemon);
                 
                 if(vida <= 0){
+                    acao = "Erro";
+                    GeradorHTML.AddComando(acao);
                     GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                         "O pokemon " + nomePokemon + " não tem vida para trocar!</div>\n");
-                    //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon " + nomePokemon + " não tem vida para trocar");
-                }   
+                }
+                else{
+                    acao = "Trocar";
+                    GeradorHTML.AddComando(acao);
+                }
             }
         }
         else{
+            acao = "Erro";
+            GeradorHTML.AddComando(acao);
             GeradorHTML.AdicionaString("                    <div id=\"erros\">" + 
                 "O pokemon " + nomePokemon + " não esta na equipe!</div>\n");
-            //BatalhaSemanticoUtils.adicionarErroSemantico(ctx.start, "O pokemon" + nomePokemon + "não esta na equipe");
         }
         return super.visitCmdTrocar(ctx);
     }

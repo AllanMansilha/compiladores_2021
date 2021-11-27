@@ -29,8 +29,6 @@ public class BatalhaSemanticoUtils {
                 return TabelaDeSimbolos.Tipo.GRAMA;
 
             default:
-                //Arquivo.AdicionaString("                    <div id=\"erros\">" + 
-                //    "Classe " + classe + " não existente</div>\n");
                 return TabelaDeSimbolos.Tipo.INVALIDO;
         }
     }
@@ -49,8 +47,6 @@ public class BatalhaSemanticoUtils {
                 return TabelaDeSimbolos.Tipo.GRAMA;
 
             default:
-                //Arquivo.AdicionaString("                    <div id=\"erros\">" + 
-                //    "Classe " + classe + " não existente</div>\n");
                 return TabelaDeSimbolos.Tipo.INVALIDO;
         }
     }

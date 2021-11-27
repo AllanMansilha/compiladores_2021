@@ -14,6 +14,7 @@ public class GeradorHTML {
     public static List<String> divPokemon = new ArrayList<String>();
     public static int vidaEquipe;
     public static int vidaSelvagem;
+    public static String comando;
     
     public static void AdicionaString(String texto) {
         arquivo.append(texto).append("\n");
@@ -31,7 +32,11 @@ public class GeradorHTML {
         vidaSelvagem = vida;
     }
     
-        // O arquivo é criado com toda a estrutura de início do HTML e CSS
+    public static void AddComando(String acao){
+        comando = acao;
+    }
+    
+    // O arquivo é criado com toda a estrutura de início do HTML e CSS
     public static void criaArquivo(String caminho) {
         caminhoArquivo = caminho;
         arquivo.append("<html>\n" +
@@ -127,21 +132,39 @@ public class GeradorHTML {
             arquivo.append(divPokemon.get(i));
         }
         
-        if(vidaEquipe>vidaSelvagem){
-            arquivo.append("<td><div id=\"erros\">"
+        if(comando == "Lutar"){
+                if(vidaEquipe>vidaSelvagem){
+                    arquivo.append("<td><div id=\"erros\">"
                     + "<h1><font color=\"#74e72e\" font-family: 'Courier New'>"
                     + "Você venceu! :D \n <br><br>"
                     + "<img src=\"https://gonintendo.com/system/file_uploads/uploads/000/021/982/medium/tumblr_inline_ncao5z05Xn1riz28f.jpg\" width=\"425\" height=\"325\"></img></td></div>\n\n");
-        }
-        else{
-            if(vidaEquipe != 0){
-                arquivo.append("<td><div id=\"erros\">"
+                }
+                else{
+                    if(vidaEquipe != 0){
+                        arquivo.append("<td><div id=\"erros\">"
                         + "<h1><font color=\"#74e72e\" 	font-family: 'Courier New'>" 
                         + "Você perdeu! :( \n <br><br>" 
                         + "<img src=\"https://images.vice.com/motherboard/content-images/article/no-id/1481668843485843.jpg\" width=\"425\" height=\"325\"></img></td></div>\n\n");
-        
+                    }
+                }
+        }
+        else{
+            if(comando == "Trocar"){
+                arquivo.append("<td><div id=\"erros\">"
+                        + "<h1><font color=\"#74e72e\" 	font-family: 'Courier New'>" 
+                        + "Você Trocou! \n <br><br>" 
+                        + "<img src=\"https://pm1.narvii.com/6455/1e01b4418640cbeb9d799e8e67dd5824b2a9d45f_hq.jpg\" width=\"425\" height=\"325\"></img></td></div>\n\n");
             }
-        }    
+            else{
+                if(comando != "Erro"){
+                    arquivo.append("<td><div id=\"erros\">"
+                        + "<h1><font color=\"#74e72e\" 	font-family: 'Courier New'>" 
+                        + "Você Fugiu! :0 \n <br><br>" 
+                        + "<img src=\"http://mrwgifs.com/wp-content/uploads/2014/03/Charmander-Runs-Away-Keeps-His-Tail-From-The-Water-On-Pokemon_408x408.jpg\" width=\"425\" height=\"325\"></img></td></div>\n\n");
+                }
+            }
+                
+        }       
         
         arquivo.append("            </tr>\n" +
                 "    </body>\n" +
