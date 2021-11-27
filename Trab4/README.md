@@ -39,7 +39,7 @@ fim selvagem
 
 Lutar(piplup)
 ```
-# Como instalar
+# Como executar
 
 No compilador, escrever o comando:
 ```
