@@ -89,6 +89,9 @@ Exemplo:
 java -j /home/fulano/Downloads/Trab4/target/Trab4-1.0-SNAPSHOT-jar-with-dependencies.jar /home/fulano/Desktop/codigo.txt /home/fulano/Desktop/saida.html
 ```
 
+# Video explicativo
+
+https://youtu.be/18d_YKUH0M8
 
 # Requerimentos
 
