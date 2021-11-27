@@ -10,7 +10,7 @@ Este diretório corresponde ao Trabalho 4 da matéria de Construção de Compila
 
 #### Descrição da linguagem
 
-A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para batalhar, precisa ter um pokemon na equipe para trocar e o pokemon a ser escolhido na troca precisa ter mais que 0 de vida. 
+A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para batalhar, apenas o primeiro pokemon da equipe pode atacar, precisa ter pelo menos dois pokemon na equipe para trocar e o pokemon a ser escolhido na troca precisa ter mais que 0 de vida. 
 
 ![image](https://user-images.githubusercontent.com/40667726/143663194-f61e1d46-b0bb-4c80-aa51-593931359b83.png)
 
@@ -38,8 +38,8 @@ pokemon selvagem
 fim selvagem
 ```
 
-Existem 3 ações que o pokémon pode realizar *Lutar*, *Trocar*, *Fugir*. 
-Para lutar, você deve escolher o comando lutar e o nome do primeiro pokemon da equipe para lutar.
+Existem 3 ações que o pokémon pode realizar **Lutar**, **Trocar**, **Fugir**. 
+Para lutar, você deve escolher o comando lutar e o nome do primeiro pokemon da equipe.
 
 ```
 Lutar(<nome do pokemon>)
