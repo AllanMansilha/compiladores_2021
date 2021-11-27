@@ -12,6 +12,9 @@ Este diretório corresponde ao Trabalho 4 da matéria de Construção de Compila
 
 A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para atacar, precisa ter um pokemon na equipe para trocar e precisa de um pokemon na equipe para enfrentar um selvagem. 
 
+![image](https://user-images.githubusercontent.com/40667726/143663194-f61e1d46-b0bb-4c80-aa51-593931359b83.png)
+
+
 #### Como utilizar a linguagem
 
 Exemplo de como implementar sua batalha:
@@ -36,11 +39,11 @@ fim selvagem
 
 Lutar(piplup)
 ```
-# Como instalae
+# Como instalar
 
 No compilador, escrever o comando:
 ```
-java -j /caminho/completo/do/compiladorTrab4/target/Trab4-1.0-SNAPSHOT-jar-with-dependencies.jar /caminho/do/codigo/codigo.txt /caminho/para/saida/saida.html
+java -j /caminho/completo/do/compilador/Trab4/target/Trab4-1.0-SNAPSHOT-jar-with-dependencies.jar /caminho/do/codigo/codigo.txt /caminho/para/saida/saida.html
 ```
 
 Exemplo:
