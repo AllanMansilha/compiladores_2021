@@ -10,8 +10,11 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 public class Principal {
-    public static void main(String[] args){     
-       try(PrintWriter pw = new PrintWriter(new File(args[1]))) { 
+    public static void main(String args[]) throws IOException{
+        
+       //try(PrintWriter pw = new PrintWriter(new File(args[1]))) {
+       GeradorHTML.criaArquivo(args[1]);
+       
             // Leitura de characteres por arquivo (arquivo no args[0])
             CharStream cs = CharStreams.fromFileName(args[0]);
         
@@ -24,7 +27,7 @@ public class Principal {
         
             // Registrar o error lister personalizado aqui
             parser.removeErrorListeners();
-            MyCustomErrorListener mcel = new MyCustomErrorListener(pw);
+            MyCustomErrorListener mcel = new MyCustomErrorListener();
             parser.addErrorListener(mcel);
             
             // Criação semântico
@@ -34,12 +37,14 @@ public class Principal {
             
             parser.programa();
             
-            if(BatalhaSemanticoUtils.errosSemanticos.isEmpty()){
+            GeradorHTML.gravaArquivo();
+            
+            /*if(BatalhaSemanticoUtils.errosSemanticos.isEmpty()){
                 
                 /* Inicia-se a geração do código em C
                 LingAGeradorC aux = new LingAGeradorC();
                 aux.visitPrograma(arvore);
-                pw.print(aux.saida.toString());*/
+                pw.print(aux.saida.toString());
                  pw.println("sem erros");
 
             }else{
@@ -52,6 +57,7 @@ public class Principal {
                  pw.println("Fim da compilacao");
             }
             
+            
             pw.close();        
             
         } catch(IOException ex){
@@ -60,5 +66,6 @@ public class Principal {
                 //ao captar um erro, imprime no terminal o erro e encerra a execução
                System.out.println(exception.getMessage());
         }
+        */
     }
 }
