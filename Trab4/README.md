@@ -36,8 +36,20 @@ fim selvagem
 
 Lutar(piplup)
 ```
-# Video explicativo da utilização
-[Link do Video]()
+# Como instalae
+
+No compilador, escrever o comando:
+```
+java -j /caminho/completo/do/compiladorTrab4/target/Trab4-1.0-SNAPSHOT-jar-with-dependencies.jar /caminho/do/codigo/codigo.txt /caminho/para/saida/saida.html
+```
+
+Exemplo:
+
+```
+java -j /home/fulano/Downloads/Trab4/target/Trab4-1.0-SNAPSHOT-jar-with-dependencies.jar /home/fulano/Desktop/codigo.txt /home/fulano/Desktop/saida.html
+```
+
+
 # Requerimentos
 
 Para executar esse programa, é necessário que a máquina tenha:
