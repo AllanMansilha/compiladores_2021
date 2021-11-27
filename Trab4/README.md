@@ -10,14 +10,50 @@ Este diretório corresponde ao Trabalho 4 da matéria de Construção de Compila
 
 #### Descrição da linguagem
 
-A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para atacar, precisa ter um pokemon na equipe para trocar e precisa de um pokemon na equipe para enfrentar um selvagem. 
+A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela podem ser acrecentados os Pokemon do seu time com o nome, o tipo e a vida deles; o pokemon adversário, com os mesmos atributos, e o comando que representa a ação do que voce deve fazer nessa batalha( lutar, trocar de pokemon ou fugir ). As principais regras semânticas são: O primeiro pokemon da equipe precisa ter vida para batalhar, precisa ter um pokemon na equipe para trocar e o pokemon a ser escolhido na troca precisa ter mais que 0 de vida. 
 
 ![image](https://user-images.githubusercontent.com/40667726/143663194-f61e1d46-b0bb-4c80-aa51-593931359b83.png)
 
 
 #### Como utilizar a linguagem
+Exemplo de como declarar os pokemons da sua equipe e selvagens:
 
-Exemplo de como implementar sua batalha:
+```
+pokemon equipe
+    nome: <nome do pokemon>,    
+    tipo: <tipo do pokemon>,
+    vida: <vida do pokemon>,
+fim equipe
+
+pokemon equipe
+    nome: <nome do pokemon>,
+    tipo: <tipo do pokemon>,
+    vida: <vida do pokemon>,
+fim equipe
+
+pokemon selvagem
+    nome: <nome do pokemon>,
+    tipo: <tipo do pokemon>,
+    vida: <vida do pokemon>,
+fim selvagem
+```
+
+Existem 3 ações que o pokémon pode realizar *Lutar*, *Trocar*, *Fugir*. 
+Para lutar, você deve escolher o comando lutar e o nome do primeiro pokemon da equipe para lutar.
+
+```
+Lutar(<nome do pokemon>)
+```
+Para trocar, você deve escolher o comando trocar e o nome do pokemon da equipe que entrará em campo.
+```
+Trocar(<nome do pokemon>)
+```
+Para fugir, basta escrever fugir.
+```
+Fugir
+```
+
+#### Exemplo de como implementar sua batalha completa:
 ```
 pokemon equipe
     nome: piplup,    
@@ -39,6 +75,7 @@ fim selvagem
 
 Lutar(piplup)
 ```
+ 
 # Como executar
 
 No compilador, escrever o comando:
@@ -71,4 +108,3 @@ Além da dependência:
 Para ver mais sobre os plugins e dependências, consulte o arquivo pom.xml na pasta principal.
 
 © 2021 Pokémon. © 1995–2021 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon, os nomes dos personagens Pokémon, Nintendo Switch, Nintendo 3DS, Nintendo DS, Wii, Wii U e WiiWare são marcas da Nintendo.
-
