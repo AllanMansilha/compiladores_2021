@@ -16,6 +16,20 @@ A linguagem Batalhas é um modelo simplifificado de uma batalha Pokemon. Nela po
 
 Exemplo de como implementar sua batalha:
 
+``pokemon equipe
+    nome: (nome do pokemon - texto),
+    tipo: (agua, fogo ou grama),
+    vida: (quantidade de vida - valor inteiro),
+fim equipe
+
+pokemon selvagem
+    nome: (nome do pokemon - texto),
+    tipo: (agua, fogo ou grama),
+    vida: (quantidade de vida - valor inteiro),
+fim selvagem
+
+Lutar(pokemon principal)``
+
 # Requerimentos
 
 Para executar esse programa, é necessário que a máquina tenha:
